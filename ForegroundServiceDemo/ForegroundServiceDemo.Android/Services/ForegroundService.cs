@@ -15,6 +15,8 @@ namespace ForegroundServiceDemo.Droid.Services
     [Service]
     internal class ForegroundService : Service, IForegroundService
     {
+        public static bool IsForegroundServiceRunning;
+
         public override IBinder OnBind(Intent intent) => throw new System.NotImplementedException();
 
         [return: GeneratedEnum]
@@ -63,5 +65,19 @@ namespace ForegroundServiceDemo.Droid.Services
             var intent = new Intent(Android.App.Application.Context, typeof(ForegroundService));
             Android.App.Application.Context.StopService(intent);
         }
+
+        public override void OnCreate()
+        {
+            base.OnCreate();
+            IsForegroundServiceRunning = true;
+        }
+
+        public override void OnDestroy()
+        {
+            base.OnDestroy();
+            IsForegroundServiceRunning = false;
+        }
+
+        public bool IsForegroundEnabled() => IsForegroundServiceRunning;
     }
 }

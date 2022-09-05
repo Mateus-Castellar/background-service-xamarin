@@ -34,8 +34,9 @@
             </Label.FormattedText>
         </Label>
 
-        <Button Text="Iniciar Servico de background" Clicked="IniciarServico" />
-        <Button Text="Parar Servico de background" Clicked="PararServico"/>
+        <Button Clicked="IniciarServico" Text="Iniciar Servico de background" />
+        <Button Clicked="PararServico" Text="Parar Servico de background" />
+        <Button Clicked="ChecarStatus" Text="Chechar Status" />
     </StackLayout>
 
 </ContentPage>

@@ -4,5 +4,6 @@
     {
         void StartMyForegroundService();
         void StopMyForegroundService();
+        bool IsForegroundEnabled();
     }
 }

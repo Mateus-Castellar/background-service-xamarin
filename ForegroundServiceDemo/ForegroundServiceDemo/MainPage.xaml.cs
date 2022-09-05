@@ -20,5 +20,13 @@ namespace ForegroundServiceDemo
         {
             DependencyService.Resolve<IForegroundService>().StopMyForegroundService();
         }
+
+        private void ChecarStatus(object sender, EventArgs e)
+        {
+            if (DependencyService.Resolve<IForegroundService>().IsForegroundEnabled())
+                DisplayAlert("Serviço", "Atenção o serviço já esta rodando", "Fechar");
+            else
+                DependencyService.Resolve<IForegroundService>().StartMyForegroundService();
+        }
     }
 }
