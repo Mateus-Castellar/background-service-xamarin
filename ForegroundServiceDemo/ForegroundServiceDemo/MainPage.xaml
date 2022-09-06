@@ -12,7 +12,7 @@
             <Label
                 FontSize="36"
                 HorizontalTextAlignment="Center"
-                Text="Welcome to Xamarin.Forms!"
+                Text="Serviço Background"
                 TextColor="White" />
         </Frame>
         <Label

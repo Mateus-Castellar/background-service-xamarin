@@ -25,7 +25,7 @@ namespace ForegroundServiceDemo.Droid.Services
         {
             Task.Run(() =>
             {
-                while (true)
+                while (IsForegroundServiceRunning)
                 {
                     System.Diagnostics.Debug.WriteLine("serviço de plano de fundo está rodando");
                     Thread.Sleep(2000);

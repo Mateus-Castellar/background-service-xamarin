@@ -11,22 +11,18 @@ namespace ForegroundServiceDemo
             InitializeComponent();
         }
 
-        private void IniciarServico(object sender, EventArgs e)
-        {
+        private void IniciarServico(object sender, EventArgs e) =>
             DependencyService.Resolve<IForegroundService>().StartMyForegroundService();
-        }
 
-        private void PararServico(object sender, EventArgs e)
-        {
+        private void PararServico(object sender, EventArgs e) =>
             DependencyService.Resolve<IForegroundService>().StopMyForegroundService();
-        }
 
         private void ChecarStatus(object sender, EventArgs e)
         {
-            if (DependencyService.Resolve<IForegroundService>().IsForegroundEnabled())
-                DisplayAlert("Serviço", "Atenção o serviço já esta rodando", "Fechar");
+            if (DependencyService.Resolve<IForegroundService>().IsForegroundEnabled() is false)
+                DisplayAlert("Serviço", "O Serviço de 2 plano não está rodando", "Fechar");
             else
-                DependencyService.Resolve<IForegroundService>().StartMyForegroundService();
+                DisplayAlert("Serviço", "Servico rodando em Background", "Fechar");
         }
     }
 }
